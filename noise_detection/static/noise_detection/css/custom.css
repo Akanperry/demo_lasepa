@@ -1,0 +1,38 @@
+/*============================================================================================*/
+/* Your custom styles below */
+/*============================================================================================*/
+
+.content-left-wrapper h2{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.content-left-wrapper p{
+    text-align: justify;
+}
+
+.content-right {
+    padding: 40px;
+}
+
+#wizard_container{
+    width:100%;
+}
+
+.content-left{
+    height: calc(100vh);
+    position: sticky;
+    top: 0;
+}
+
+@media (max-width:991px){
+    .content-left{
+        height: 100%;
+        position: unset;
+        top: unset;
+    }
+}
+
+.row-height{
+    height:100%;
+}

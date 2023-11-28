@@ -1,0 +1,134 @@
+
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Wilio Survey, Quotation, Review and Register form Wizard by Ansonika.">
+    <meta name="author" content="Ansonika">
+    <title>{% block title %}{% endblock %} | Lagos State Environmental Agency - Lasepa</title>
+
+    {% load static %}
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="{% static 'noise_detection/img/lasepa_favicon.png' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="{% static 'noise_detection/img/lasepa_favicon.png' %}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{% static 'noise_detection/img/lasepa_favicon.png' %}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{% static 'noise_detection/img/lasepa_favicon.png' %}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{% static 'noise_detection/img/lasepa_favicon.png' %}">
+
+    <!-- GOOGLE WEB FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600" rel="stylesheet">
+
+    <!-- BASE CSS -->
+    <link href="{% static 'noise_detection/css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'noise_detection/css/vendors.css' %}" rel="stylesheet">
+    <link href="{% static 'noise_detection/css/menu.css' %}" rel="stylesheet">
+	<link href="{% static 'noise_detection/css/style.css' %}" rel="stylesheet">
+
+    <!-- YOUR CUSTOM CSS -->
+    <link href="{% static 'noise_detection/css/custom.css' %}" rel="stylesheet">
+	
+	<!-- MODERNIZR MENU -->
+	<script src="{% static 'noise_detection/js/modernizr.js' %}"></script>
+
+</head>
+
+<body>
+	
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div><!-- /Preload -->
+	
+	<div id="loader_form">
+		<div data-loader="circle-side-2"></div>
+	</div><!-- /loader_form -->
+	
+	<header>
+		<div class="container-fluid">
+		    <div class="row">
+                <div class="col-3">
+                    {% load static %}
+                    <a href="{% url 'home' %}"><img src="{% static 'noise_detection/img/lasepa_favicon.png' %}" alt="" width="50" height="50"></a>
+                </div>
+                <div class="col-9 position-relative">
+                    <div id="social">
+                        <ul>
+                            <li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="#"><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-google"></i></a></li>
+							<li><a href="#"><i class="icon-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                    <!-- /social -->
+					<a href="#0" class="cd-nav-trigger">Menu<span class="cd-icon"></span></a>
+					<!-- /menu button -->
+                    <nav>
+						<ul class="cd-primary-nav">
+							<li><a href="{% url 'home' %}" class="animated_link">Home</a></li>
+                            <li><a href="{% url 'history' %}" class="animated_link">Analysis History</a></li>
+                            <li><a href="{% url 'about' %}" class="animated_link">About the System</a></li>
+						</ul>
+					</nav>
+					<!-- /menu -->
+                </div>
+            </div>
+		</div>
+		<!-- /container -->
+	</header>
+	<!-- /Header -->
+	
+	<section class="parallax_window_in" data-parallax="scroll" data-image-src="img/sub_header_about.jpg" data-natural-width="1400" data-natural-height="800">
+		<div id="sub_content_in">
+			<h1>{% block heading %}{% endblock %}</h1>
+			<p>"Prototype of a sound analysis and noise detection system"</p>
+		</div>
+	</section>
+	<!-- /section -->
+
+    <div class="my-3">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+
+	{% block content %}
+    {% endblock %}
+	
+	<footer class="clearfix">
+		<div class="container">
+			<p>© 2023 LASEPA</p>
+			<ul>
+				<li><a href="#" class="animated_link">Noise Detection</a></li>
+				<li><a href="#" class="animated_link">Sound Analysis</a></li>
+				<!-- <li><a href="#" class="animated_link"></a></li> -->
+			</ul>
+		</div>
+	</footer>
+	<!-- end footer-->
+
+	<div class="cd-overlay-nav">
+		<span></span>
+	</div>
+	<!-- /cd-overlay-nav -->
+
+	<div class="cd-overlay-content">
+		<span></span>
+	</div>
+	<!-- /cd-overlay-content -->
+	
+	{% load static %}
+    <script src="{% static 'noise_detection/js/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'noise_detection/js/common_scripts.min.js' %}"></script>
+	<script src="{% static 'noise_detection/js/owl-carousel.js' %}"></script>
+	<script src="{% static 'noise_detection/js/parallax.min.js' %}"></script>
+	<script src="{% static 'noise_detection/js/velocity.min.js' %}"></script>
+
+    <script src="{% static 'noise_detection/js/functions.js' %}"></script>
+
+
+</body></html>
+
+{% block endtag %}
+{% endblock %}

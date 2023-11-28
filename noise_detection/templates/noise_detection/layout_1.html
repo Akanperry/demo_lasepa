@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Wilio Survey, Quotation, Review and Register form Wizard by Ansonika.">
+    <meta name="author" content="Ansonika">
+    <title>{% block title %}{% endblock %} | Lagos State Environmental Agency - Lasepa</title>
+
+    {% load static %}
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="{% static 'noise_detection/img/lasepa_favicon.png' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="{% static 'noise_detection/img/lasepa_favicon.png' %}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{% static 'noise_detection/img/lasepa_favicon.png' %}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{% static 'noise_detection/img/lasepa_favicon.png' %}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{% static 'noise_detection/img/lasepa_favicon.png' %}">
+
+    <!-- GOOGLE WEB FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600" rel="stylesheet">
+
+	<link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet" />
+
+    <!-- BASE CSS -->
+    <link href="{% static 'noise_detection/css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'noise_detection/css/vendors.css' %}" rel="stylesheet">
+    <link href="{% static 'noise_detection/css/menu.css' %}" rel="stylesheet">
+	<link href="{% static 'noise_detection/css/style.css' %}" rel="stylesheet">
+
+    <!-- YOUR CUSTOM CSS -->
+    <link href="{% static 'noise_detection/css/custom.css' %}" rel="stylesheet">
+	
+	<!-- MODERNIZR MENU -->
+	<script src="{% static 'noise_detection/js/modernizr.js' %}"></script>
+
+</head>
+
+<body>
+	
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div><!-- /Preload -->
+	
+	<div id="loader_form">
+		<div data-loader="circle-side-2"></div>
+	</div><!-- /loader_form -->
+	
+	<nav>
+		<ul class="cd-primary-nav">
+			<li><a href="{% url 'home' %}" class="animated_link">Home</a></li>
+			<li><a href="{% url 'history' %}" class="animated_link">Analysis History</a></li>
+			<li><a href="{% url 'about' %}" class="animated_link">About the System</a></li>
+		</ul>
+	</nav>
+	<!-- /menu -->
+	
+	<div class="container-fluid full-height">
+		<div class="row row-height">
+			<div class="col-lg-5 content-left">
+				<div class="content-left-wrapper">
+					<!-- <a href="home.html" id="logo"><img src="img/lasepa_favicon.png" alt="" width="50" height="50"></a> -->
+					<div id="social">
+						<ul>
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="#"><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-google"></i></a></li>
+							<li><a href="#"><i class="icon-linkedin"></i></a></li>
+						</ul>
+					</div>
+					<!-- /social -->
+					<div>
+						<figure>
+                            {% load static %}
+                            <img src="{% static 'noise_detection/img/logo.png' %}" alt="" class="img-fluid" style="border-radius: 20px;">
+                        </figure>
+                        <br>
+						<h2>NOISE DETECTION SYSTEM</h2>
+						<p>This demo is a prototype of a sound analysis and noise detection system. The system utilizes machine learning techniques in analysising an audio sound (in .mp3 or .wav format), and produce noise density score by which the the audio is classified as being "Noisy" or "Not Noisy".</p>
+						<a href="#" class="btn_1 rounded" data-bs-toggle="modal" data-bs-target="#terms-txt">How to use the System?</a>
+						<a href="#" class="btn_1 rounded mobile_btn" data-bs-toggle="modal" data-bs-target="#terms-txt">How to use the System?</a>
+					</div>
+					<div class="copy">© 2023 LASEPA</div>
+				</div>
+				<!-- /content-left-wrapper -->
+			</div>
+			<!-- /content-left -->
+
+            <div class="col-lg-7 content-right" id="start">
+
+                <div id="wizard_container">
+                    <div id="top-wizard">
+                        {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+
+                    {% block content %}
+                    {% endblock %}
+                </div>
+
+                
+
+            </div>
+            <!-- /content-right-->
+
+        </div>
+		<!-- /row-->
+	</div>
+	<!-- /container-fluid -->
+
+	<div class="cd-overlay-nav">
+		<span></span>
+	</div>
+	<!-- /cd-overlay-nav -->
+
+	<div class="cd-overlay-content">
+		<span></span>
+	</div>
+	<!-- /cd-overlay-content -->
+
+	<a href="#0" class="cd-nav-trigger">Menu<span class="cd-icon"></span></a>
+	<!-- /menu button -->
+	
+	<!-- Modal terms -->
+	<div class="modal fade" id="terms-txt" tabindex="-1" role="dialog" aria-labelledby="termsLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="termsLabel">How to Use the System</h4>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p><strong>1. Select an Audio File.</strong> The audio file should be in .mp3 or .wav format and the file size should be greater <strong>100KB and lesser than 25MB</strong>. For quality result, the audio file should be within the range of <strong>1 minutes and 5 minutes</strong>.</p>
+					<p><strong>2. Click on the analyse button and wait for the result to be displayed.</strong> You can use the Graphical Visualisation of the audio file to gain more insights. The system provides a graphical visualisation of the audio in Wave Form, Frequency Spectrum, Spectrogam and Mel Spectrogam.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn_1" data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+	
+	<!-- COMMON SCRIPTS -->
+	{% load static %}
+    <script src="{% static 'noise_detection/js/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'noise_detection/js/common_scripts.min.js' %}"></script>
+	<script src="{% static 'noise_detection/js/owl-carousel.js' %}"></script>
+	<script src="{% static 'noise_detection/js/parallax.min.js' %}"></script>
+	<script src="{% static 'noise_detection/js/velocity.min.js' %}"></script>
+
+    <script src="{% static 'noise_detection/js/functions.js' %}"></script>
+
+
+</body></html>
+
+{% block endscript %}
+{% endblock %}

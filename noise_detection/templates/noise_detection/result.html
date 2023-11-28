@@ -1,0 +1,99 @@
+{% extends "noise_detection/layout_1.html" %}
+{% block title %}
+Analysis Result
+{% endblock %}
+{% block content %}
+
+<div id="middle-wizard">								
+    <!-- /step-->
+    <div class="submit step">
+        <h3 class="main_question" style="margin-bottom: 30px;">Result Analysis</h3>
+        <div class="summary">
+            <ul>
+                <li><strong>1</strong>
+                    <h5>Title:</h5>
+                    <p id="additional_message">{{ title }} MB</p>
+                </li>
+                <li><strong>2</strong>
+                    <h5>Audio File:</h5>
+                    <p>
+                        <audio controls>
+                            {% if audio_file_name %}
+                            <source src="{{audio_file_name.url}}" type="audio/mp3">
+                            <source src="{{audio_file_name.url}}" type="audio/wav">
+                            {% endif %}
+                        </audio>
+                    </p>
+                </li>
+                <li><strong>3</strong>
+                    <h5>Audio File Size:</h5>
+                    <p id="additional_message">{{ audio_file_size }} MB</p>
+                </li>
+                <li><strong>4</strong>
+                    <h5>Audio File Duration:</h5>
+                    <p>{{ audio_file_duration }}</p>
+                </li>
+                <li><strong>5</strong>
+                    <h5>Audio File Type:</h5>
+                    <p>{{ audio_file_type }}</p>
+                </li>
+                <li><strong>6</strong>
+                    <h5>Noise Density:</h5>
+                    <p>{{ noise_density }}</p>
+                </li>
+                <li><strong>7</strong>
+                    <h5>Category:</h5>
+                    <p>{{ category }}</p>
+                </li>
+                <li><strong>8</strong>
+                    <h5>IP Address:</h5>
+                    <p>{{ user_ip_address }}</p>
+                </li>
+                <li><strong>9</strong>
+                    <h5>GEO Location:</h5>
+                    <p>{{ gps_location }}</p>
+                </li>
+                <li><strong>10</strong>
+                    <h5>Video Evidence:</h5>
+                    <p>
+                        <video width="320" height="240" controls>
+                            {% if video_evidence %}
+                            <source src="{{ video_evidence }}" type="video/mp4">
+                            <source src="{{ video_evidence }}" type="video/wav">
+                            <source src="{{ video_evidence }}" type="video/mov">
+                            <source src="{{ video_evidence }}" type="video/avi">
+                            <source src="{{ video_evidence }}" type="video/webm">
+                            <source src="{{ video_evidence }}" type="video/wmv">
+                            {% endif %}
+                        </video>
+                    </p>
+                </li>
+                <li><strong>11</strong>
+                    <h5>Log Date:</h5>
+                    <p>{{ log_date | date:'l, d F, Y' }} at {{ log_date | time:'H:i:s' }}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div style="margin-top: 80px; margin-bottom: 50px;">
+        <h3 class="main_question" style="margin-bottom: 30px;">Audio Graphical Visualisations</h3>
+
+        <div class="summary">
+            <ul>
+                {% if mel_specto_chart %}
+                <li>
+                    <h5>Mel Spectrogam of Audio File:</h5>
+                    <img src="{{mel_specto_chart.url|safe}}" alt="" id="img">
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <!-- /step-->
+</div>
+<div id="bottom-wizard">
+    <a href="{% url 'home' %}" class="submit">Run another Analysis</a>
+</div>
+
+{% endblock %}
