@@ -6,46 +6,45 @@
 {% block content %}
 
 <div>
-    <video
-    id="my-video"
-    class="video-js"
-    controls
-    autoplay
-    playsinline
-    preload="auto"
-    width="640"
-    height="264"
-    poster="MY_VIDEO_POSTER.jpg"
-    data-setup="{}"
-  >
-    <source src="MY_VIDEO.mp4" type="video/mp4" />
-    <source src="MY_VIDEO.webm" type="video/webm" />
-    <p class="vjs-no-js">
+  {%load static %}
+  <video
+  id="my-video"
+  class="video-js"
+  controls
+  playsinline
+  width="640"
+  height="264"
+  poster="{% static 'noise_detection/img/logo.png' %}">
+  
+
+    <source src="" type="video/mp4" />
+    <source src="" type="video/webm" />
+    <p>
       To view this video please enable JavaScript, and consider upgrading to a
       web browser that
       <a href="https://videojs.com/html5-video-support/" target="_blank"
         >supports HTML5 video</a
       >
     </p>
+
   </video>
+
 </div>
 
 <div class="my-3" style="text-align: center;">
     <button type="button" id="buttonStart" class="btn btn-secondary btn-lg">Start Recording</button>
-    <button type="button" id="buttonStop" class="btn btn-danger btn-lg" disabled>Stop Recording</button>
+    <button type="button" id="buttonStop" class="btn btn-danger btn-lg" disabled>Stop Recording & Analyse</button>
+
+    {% load static %}
+    <script src="{% static 'noise_detection/js/main.js' %}"></script>
 </div>
 
 {% endblock %}
 
 {% block endscript %}
-<script>
+<!-- <script>
     $(document).ready(function(){
         $("#terms-txt").modal('show');
     });
-</script>
-
-<script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
-
-{% load static %}
-<script src="{% static 'noise_detection/js/main.js' %}"></script>
+</script> -->
 {% endblock %}

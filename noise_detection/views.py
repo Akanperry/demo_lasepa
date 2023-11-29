@@ -14,6 +14,7 @@ from django.views.generic import ListView
 
 class ResultListView(ListView):
     """Renders the history page, with a list of result of the analysis."""
+    paginate_by = 5
     model = AudioAnalysis
 
     def get_context_data(self, **kwargs):

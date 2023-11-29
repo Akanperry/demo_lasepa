@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="en"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Wilio Survey, Quotation, Review and Register form Wizard by Ansonika.">
-    <meta name="author" content="Ansonika">
+    <meta name="description" content="Demo of a sound analysis and nosie detection system for Lagos State Environmental Agency (LASEPA)">
+    <meta name="author" content="lasepa">
     <title>{% block title %}{% endblock %} | Lagos State Environmental Agency - Lasepa</title>
 
     {% load static %}
@@ -15,8 +15,6 @@
 
     <!-- GOOGLE WEB FONT -->
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600" rel="stylesheet">
-
-	<link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet" />
 
     <!-- BASE CSS -->
     <link href="{% static 'noise_detection/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -72,7 +70,7 @@
                         </figure>
                         <br>
 						<h2>NOISE DETECTION SYSTEM</h2>
-						<p>This demo is a prototype of a sound analysis and noise detection system. The system utilizes machine learning techniques in analysising an audio sound (in .mp3 or .wav format), and produce noise density score by which the the audio is classified as being "Noisy" or "Not Noisy".</p>
+						<p>This demo is a prototype of a sound analysis and noise detection system. The system utilizes machine learning techniques in analysising an audio sound (in .mp3 or .wav format), and produce noise density score by which the the audio is classified.</p>
 						<a href="#" class="btn_1 rounded" data-bs-toggle="modal" data-bs-target="#terms-txt">How to use the System?</a>
 						<a href="#" class="btn_1 rounded mobile_btn" data-bs-toggle="modal" data-bs-target="#terms-txt">How to use the System?</a>
 					</div>
@@ -131,8 +129,12 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<p><strong>1. Select an Audio File.</strong> The audio file should be in .mp3 or .wav format and the file size should be greater <strong>100KB and lesser than 25MB</strong>. For quality result, the audio file should be within the range of <strong>1 minutes and 5 minutes</strong>.</p>
-					<p><strong>2. Click on the analyse button and wait for the result to be displayed.</strong> You can use the Graphical Visualisation of the audio file to gain more insights. The system provides a graphical visualisation of the audio in Wave Form, Frequency Spectrum, Spectrogam and Mel Spectrogam.</p>
+					<p>
+						<strong>1. Start Recording.</strong> Use the <strong>Start Recording</strong> button to start a new recording. For quality assurance, the video should be at least 30secs and not more than 1min:30secs, to give a quality result. Also, the video should be taken at close proximity to where the sound is originating from or at a point of interest relative to the place the sound is originating from.
+					</p>
+					<p>
+						<strong>2. Stop Recording and Analyse.</strong> When done recording, Click the "Stop Recording and Analyse" button to save the recording to your local device and analyse the audio. After the analysis is complete, the system will take you to result page showing the result of the analysis.
+					</p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn_1" data-bs-dismiss="modal">Close</button>
